@@ -7,7 +7,7 @@ export default class Home extends Component {
     super(props);
 
     this.state = {
-      content: ""
+      content: [{}]
     };
   }
 
@@ -30,11 +30,37 @@ export default class Home extends Component {
   }
 
   render() {
+    console.log(this.state.content);
     return (
       <div className="container">
-        <header className="jumbotron">
-          <h3>{this.state.content}</h3>
-        </header>
+        <header className="jumbotron"></header>
+          <table className="table">
+            <thead>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Position</th>
+            <th>Departmant</th>
+            <th>Job Title</th>
+            <th>Additional Info</th>
+            </thead>
+            <tbody>
+              {this.state.content.map(item => {
+                return(
+            <tr>
+              <td>{item.name}</td>
+              <td>{item.email}</td>
+              <td>{item.phone}</td>
+              <td>{item.position}</td>
+              <td>{item.department}</td>
+              <td>{item.jobTitle}</td>
+              <td>{item.additionalInfo}</td>
+            </tr>
+              )})}
+            </tbody>
+          </table>
+        
+
       </div>
     );
   }
